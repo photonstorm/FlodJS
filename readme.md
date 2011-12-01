@@ -33,6 +33,11 @@ Neoart Costa Rica
 
 E-Mail: flod@neoartcr.com
 
+Live Demo
+---------
+
+http://sandbox.photonstorm.com/FlodJS/
+
 Example
 -------
 
@@ -40,14 +45,14 @@ You can include just the player(s) you need in your page just remember that all 
 the Core.js and the Amiga.js files too and the PC player (FT2) needs the Core.js and the Soundblaster.js files.
 
 Example, including the ProTracker player:
-  Core.js
-  Amiga.js
-  PTPlayer.js
+	Core.js
+	Amiga.js
+	PTPlayer.js
 
 including the FastTracker II player:
-  Core.js
-  Soundblaster.js
-  F2Player.js
+	Core.js
+	Soundblaster.js
+	F2Player.js
 
 License
 -------
