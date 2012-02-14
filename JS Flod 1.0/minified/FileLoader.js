@@ -1,0 +1,23 @@
+/*
+  JavaScript Flod 1.0
+  2012/02/08
+  Christian Corti
+  Neoart Costa Rica
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+  This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License.
+  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to
+  Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+*/
+(function(){var d="Unknown Format,Ultimate SoundTracker,D.O.C. SoundTracker 9,Master SoundTracker,D.O.C. SoundTracker 2.0/2.2,SoundTracker 2.3,SoundTracker 2.4,NoiseTracker 1.0,NoiseTracker 1.1,NoiseTracker 2.0,ProTracker 1.0,ProTracker 1.1/2.1,ProTracker 1.2/2.0,His Master's NoiseTracker,SoundFX 1.0/1.7,SoundFX 1.8,SoundFX 1.945,SoundFX 1.994/2.0,BP SoundMon V1,BP SoundMon V2,BP SoundMon V3,Delta Music 1.0,Delta Music 2.0,Digital Mugician,Digital Mugician 7 Voices,Future Composer 1.0/1.3,Future Composer 1.4,SidMon 1.0,SidMon 2.0,FastTracker II,Sk@leTracker,MadTracker 2.0,MilkyTracker,OpenMPT".split(",");
+window.neoart.FileLoader=function(){var c=Object.create(null,{player:{value:null,writable:!0},index:{value:0,writable:!0},amiga:{value:null,writable:!0},mixer:{value:null,writable:!0},tracker:{get:function(){return this.player?d[this.index+this.player.version]:""}},load:{value:function(a){var b;a.view||(a=ByteArray(a));a.endian=1;a.position=0;if(67324752==a.readUint())if(window.neoart.Unzip)a=ZipFile(a),a=a.uncompress(a.entries[0]);else throw"Unzip support is not available.";if(this.player&&"STPlayer"!=
+this.player.id&&(this.player.load(a),this.player.version))return player;if(336<a.length&&(a.position=38,b=a.readString(20),"FastTracker v2.00   "==b||"Sk@le Tracker"==b||"MadTracker 2.0"==b||"MilkyTracker        "==b||-1!=b.indexOf("OpenMPT")))if(this.player=window.neoart.F2Player(this.mixer),this.player.load(a),this.player.version)return this.index=28,this.player;if(2149<a.length)if(a.position=1080,b=a.readString(4),"M.K."==b||"FLT4"==b){if(this.player=window.neoart.MKPlayer(this.amiga),this.player.load(a),
+this.player.version)return this.index=4,this.player}else if("FEST"==b&&(this.player=window.neoart.HMPlayer(this.amiga),this.player.load(a),this.player.version))return this.index=12,this.player;if(2149<a.length&&(a.position=1080,b=a.readString(4),"M.K."==b||"M!K!"==b))if(this.player=window.neoart.PTPlayer(this.amiga),this.player.load(a),this.player.version)return this.index=9,this.player;if(1685<a.length&&(a.position=60,b=a.readString(4),"SONG"!=b&&(a.position=124,b=a.readString(4)),"SONG"==b||"SO31"==
+b))if(this.player=window.neoart.FXPlayer(this.amiga),this.player.load(a),this.player.version)return this.index=13,this.player;if(4<a.length&&(a.position=0,b=a.readString(4),"ALL "==b&&(this.player=window.neoart.D1Player(this.amiga),this.player.load(a),this.player.version))||3018<a.length&&(a.position=3014,b=a.readString(4),".FNL"==b&&(this.player=window.neoart.D2Player(this.amiga),this.player.load(a),this.player.version)))return this.index=20,this.player;if(30<a.length&&(a.position=26,b=a.readString(3),
+"BPS"==b||"V.2"==b||"V.3"==b))if(this.player=window.neoart.BPPlayer(this.amiga),this.player.load(a),this.player.version)return this.index=17,this.player;if(4<a.length&&(a.position=0,b=a.readString(4),"SMOD"==b||"FC14"==b))if(this.player=window.neoart.FCPlayer(this.amiga),this.player.load(a),this.player.version)return this.index=24,this.player;if(10<a.length&&(a.position=0,b=a.readString(9)," MUGICIAN"==b&&(this.player=window.neoart.DMPlayer(this.amiga),this.player.load(a),this.player.version)))return this.index=
+22,this.player;if(86<a.length&&(a.position=58,b=a.readString(28),"SIDMON II - THE MIDI VERSION"==b&&(this.player=window.neoart.S2Player(this.amiga),this.player.load(a),this.player.version)))return this.index=26,this.player;if(5220<a.length&&(this.player=window.neoart.S1Player(this.amiga),this.player.load(a),this.player.version))return this.index=26,this.player;if(1625<a.length&&(this.player=window.neoart.STPlayer(this.amiga),this.player.load(a),this.player.version))return this.index=0,this.player;
+this.player=window.neoart.DWPlayer(this.amiga);this.player.load(a);if(this.player.version)return this.index=WHITTAKER,this.player;a.clear();this.index=0;return this.player=null}}});c.amiga=Amiga();return Object.seal(c)}()})();

@@ -1,5 +1,5 @@
-JavaScript Flod 1.0
-===================
+JavaScript / HTML5 Flod 1.0
+===========================
 
 This is a JavaScript port of my AS3 Flod library, it currently works only in Chrome (I've used version
 17.0.942.0 to develop it), hopefully in the future other browsers will add support for the Web Audio API.
@@ -9,28 +9,30 @@ you to mention the proper credits and to make a donation to: chreil@hotmail.com 
 
 This version will replay the following music formats using the Web Audio API:
 
-* STPlayer (The Ultimate Soundtracker, DOC Soundtracker 9, Master Soundtracker, DOC Soundtracker 2.0)
-* MKPlayer (Soundtracker 2.3, Soundtracker 2.5, NoiseTracker 1.0, NoiseTracker 1.1, NoiseTracker 2.0)
-* HMPlayer (His Master's NoiseTracker)
-* PTPlayer (ProTracker 1.0, ProTracker 1.1, ProTracker 1.2)
-* FXPlayer (SoundFX 1.0, SoundFX 1.8, SoundFX 1.9, SoundFX 2.0)
-* FCPlayer (FutureComposer 1.0, FutureComposer 1.2, FutureComposer 1.3, FutureComposer 1.4)
-* S1Player (SidMon)
-* S2Player (SidMon II)
-* BPPlayer (BP SoundMon 1.0, BP SoundMon 2.0, BP SoundMon 3.0)
-* D1Player (DeltaMusic 1.0)
-* D2Player (DeltaMusic 2.0, Delta Music 2.2)
-* DMPlayer (Digital Mugician 4 &amp; 7 Voices)
-* DWPlayer (David Whittaker, this player is in beta and it doesn't support all the variants out there)
-* F2Player (FastTracker II XM)
+* FastTracker II XM
+* The Ultimate Soundtracker
+* DOC Soundtracker 9, DOC Soundtracker 2.0
+* Master Soundtracker
+* Soundtracker 2.3, Soundtracker 2.5
+* NoiseTracker 1.0, NoiseTracker 1.1, NoiseTracker 2.0
+* His Master’s NoiseTracker
+* ProTracker 1.0, ProTracker 1.1, ProTracker 1.2
+* SoundFX 1.0, SoundFX 1.8, SoundFX 1.9, SoundFX 2.0
+* FutureComposer 1.0, FutureComposer 1.2, FutureComposer 1.3, FutureComposer 1.4
+* SidMon
+* SidMon II
+* BP SoundMon 1.0, BP SoundMon 2.0, BP SoundMon 3.0
+* DeltaMusic 1.0
+* DeltaMusic 2.0, Delta Music 2.2
+* Digital Mugician 4 & 7 Voices
+* David Whittaker
+* Atari ST YM Chip (via the FlYM package)
 
 Author
 ------
 
-2011/11/30/
-Christian Corti
+14th February 2012, Christian Corti
 Neoart Costa Rica
-
 E-Mail: flod@neoartcr.com
 
 Live Demo

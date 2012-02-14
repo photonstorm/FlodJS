@@ -1,12 +1,12 @@
 <!--
   JavaScript Flod 1.0
-  2011/11/30
+  2012/02/08
   Christian Corti
   Neoart Costa Rica
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- 	OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- 	LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
   IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License.
@@ -18,69 +18,17 @@
 <head>
   <title>JavaScript Flod 1.0 | Christian Corti</title>
   <style type="text/css">
-    *     { font-size:12px   }
-    input { margin-left:20px }
+    body { background:#000000; color:#f0f0f0; font:normal 12px "Segoe UI",sans-serif }
+    *    { font-size:12px }
   </style>
-  <script type="text/javascript" src="Flod_min.js.php"></script>
+  <script type="text/javascript" src="Flod.php"></script>
 </head>
 <body>
-  <h1>JavaScript Flod | version 1.0 | &copy 2012 Christian Corti</h1>
+  <h1>JavaScript Flod 1.0 | &copy 2012 Christian Corti</h1>
   <br/>
   <div>
-    <h2>STPlayer (The Ultimate Soundtracker, DOC Soundtracker 9, Master Soundtracker, DOC Soundtracker 2.0)</h2>
-    <input type="file" id="stbrowse"/>
-  </div>
-  <div>
-    <h2>MKPlayer (Soundtracker 2.3, Soundtracker 2.5, NoiseTracker 1.0, NoiseTracker 1.1, NoiseTracker 2.0)</h2>
-    <input type="file" id="mkbrowse"/>
-  </div>
-  <div>
-    <h2>HMPlayer (His Master's NoiseTracker)</h2>
-    <input type="file" id="hmbrowse"/>
-  </div>
-  <div>
-    <h2>PTPlayer (ProTracker 1.0, ProTracker 1.1, ProTracker 1.2)</h2>
-    <input type="file" id="ptbrowse"/>
-  </div>
-  <div>
-    <h2>FXPlayer (SoundFX 1.0, SoundFX 1.8, SoundFX 1.9, SoundFX 2.0)</h2>
-    <input type="file" id="fxbrowse"/>
-  </div>
-  <div>
-    <h2>FCPlayer (FutureComposer 1.0, FutureComposer 1.2, FutureComposer 1.3, FutureComposer 1.4)</h2>
-    <input type="file" id="fcbrowse"/>
-  </div>
-  <div>
-    <h2>S1Player (SidMon)</h2>
-    <input type="file" id="s1browse"/>
-  </div>
-  <div>
-    <h2>S2Player (SidMon II)</h2>
-    <input type="file" id="s2browse"/>
-  </div>
-  <div>
-    <h2>BPPlayer (BP SoundMon 1.0, BP SoundMon 2.0, BP SoundMon 3.0)</h2>
-    <input type="file" id="bpbrowse"/>
-  </div>
-  <div>
-    <h2>D1Player (DeltaMusic 1.0)</h2>
-    <input type="file" id="d1browse"/>
-  </div>
-  <div>
-    <h2>D2Player (DeltaMusic 2.0, Delta Music 2.2)</h2>
-    <input type="file" id="d2browse"/>
-  </div>
-  <div>
-    <h2>DMPlayer (Digital Mugician 4 &amp; 7 Voices)</h2>
-    <input type="file" id="dmbrowse"/>
-  </div>
-  <div>
-    <h2>DWPlayer (David Whittaker, this player is in beta and it doesn't support all the variants out there)</h2>
-    <input type="file" id="dwbrowse"/>
-  </div>
-  <div>
-    <h2>F2Player (FastTracker II XM)</h2>
-    <input type="file" id="f2browse"/>
+    <h2>FileLoader</h2>
+    <input type="file" id="browse"/><br/>
   </div>
   <br/><br/>
   <button type="button" id="play" disabled>Play</button>
@@ -93,24 +41,10 @@
         play   = gid("play"),
         pause  = gid("pause"),
         stop   = gid("stop"),
+        loader = window.neoart.FileLoader;
         player = null;
 
-    gid("stbrowse").addEventListener("change", function(e) { load(e, "STPlayer"); });
-    gid("mkbrowse").addEventListener("change", function(e) { load(e, "MKPlayer"); });
-    gid("hmbrowse").addEventListener("change", function(e) { load(e, "HMPlayer"); });
-    gid("ptbrowse").addEventListener("change", function(e) { load(e, "PTPlayer"); });
-    gid("fxbrowse").addEventListener("change", function(e) { load(e, "FXPlayer"); });
-    gid("fcbrowse").addEventListener("change", function(e) { load(e, "FCPlayer"); });
-    gid("s1browse").addEventListener("change", function(e) { load(e, "S1Player"); });
-    gid("s2browse").addEventListener("change", function(e) { load(e, "S2Player"); });
-    gid("bpbrowse").addEventListener("change", function(e) { load(e, "BPPlayer"); });
-    gid("d1browse").addEventListener("change", function(e) { load(e, "D1Player"); });
-    gid("d2browse").addEventListener("change", function(e) { load(e, "D2Player"); });
-    gid("dmbrowse").addEventListener("change", function(e) { load(e, "DMPlayer"); });
-    gid("dwbrowse").addEventListener("change", function(e) { load(e, "DWPlayer"); });
-    gid("f2browse").addEventListener("change", function(e) { load(e, "F2Player"); });
-
-    function load(e, id) {
+    gid("browse").addEventListener("change", function(e) {
       var file = e.target.files[0], reader;
 
       if (player) {
@@ -120,14 +54,14 @@
 
       if (file) {
         reader = new FileReader();
+
         reader.onload = function(e) {
-          if (!player || player.id != id) player = window.neoart["create"+ id]();
-          player.load(e.target.result);
-          play.disabled = (player.version == 0);
+          player = loader.load(e.target.result);
+          play.disabled = player.version ? false : true;
         }
         reader.readAsArrayBuffer(file);
       }
-    }
+    });
 
     play.addEventListener("click", function(e) {
       player.play();
