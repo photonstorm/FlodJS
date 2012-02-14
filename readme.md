@@ -26,7 +26,6 @@ This version will replay the following music formats using the Web Audio API:
 * DeltaMusic 2.0, Delta Music 2.2
 * Digital Mugician 4 & 7 Voices
 * David Whittaker
-* Atari ST YM Chip (via the FlYM package)
 
 Author
 ------
