@@ -1,5 +1,24 @@
-JavaScript Flod 1.0
+JavaScript Flod 2.0
 ===================
+
+What's new in 2.0:
+
+* new David Whittaker player
+* new FredEd player
+* new Jochen Hippel player (regular and COSO formats, 4 voices only)
+* new Rob Hubbard player
+* added DigiBooster Pro 2.18 detection to the XM player
+* Delta Music 1.0, fixed wrong sustain value
+* Delta Music 2.0, fixed Warfalcons-Intromusik 2 crash
+* Delta Music 2.0, fixed wrong restart pointer
+* Digital Mugician, fixed sample loop pointer (fixes Hoi Level 4)
+* Future Composer (Flod only), 1.0/1.3 was using the wrong waves
+* SoundFX, fixed effect 7/8 [step down/up] (fixes Forever Tonight)
+* SidMON 2, fixed effect C/F [volume and speed] (fixes Cool Module)
+* SidMON 2 was processing effects at tick 0, it shouldn't :)
+* SoundMon, fixed buffer restore, most modules didn't play at all
+* ProTracker/NoiseTracker fixed vibrato depth value not set at the beginning
+* Fixed and updated Flip/Unzip
 
 This is a JavaScript port of my AS3 Flod library, it currently works only in Chrome (I've used version
 17.0.942.0 to develop it), hopefully in the future other browsers will add support for the Web Audio API.
@@ -21,13 +40,17 @@ This version will replay the following music formats using the Web Audio API:
 * D1Player (DeltaMusic 1.0)
 * D2Player (DeltaMusic 2.0, Delta Music 2.2)
 * DMPlayer (Digital Mugician 4 &amp; 7 Voices)
-* DWPlayer (David Whittaker, this player is in beta and it doesn't support all the variants out there)
-* F2Player (FastTracker II XM)
+* DWPlayer (David Whittaker)
+* F2Player (FastTracker II XM + DigiBooster Pro 2.18 detection)
+* FEPlayer (FredEd player)
+* JHPlayer (Jochen Hippel player)
+* RHPlayer (Rob Hubbard player)
+
 
 Author
 ------
 
-2011/11/30/
+1st April 2012
 Christian Corti
 Neoart Costa Rica
 
