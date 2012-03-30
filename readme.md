@@ -1,5 +1,5 @@
-JavaScript Flod 2.0
-===================
+JavaScript / HTML5 Flod 2.0
+===========================
 
 What's new in 2.0:
 
@@ -28,32 +28,33 @@ you to mention the proper credits and to make a donation to: chreil@hotmail.com 
 
 This version will replay the following music formats using the Web Audio API:
 
-* STPlayer (The Ultimate Soundtracker, DOC Soundtracker 9, Master Soundtracker, DOC Soundtracker 2.0)
-* MKPlayer (Soundtracker 2.3, Soundtracker 2.5, NoiseTracker 1.0, NoiseTracker 1.1, NoiseTracker 2.0)
-* HMPlayer (His Master's NoiseTracker)
-* PTPlayer (ProTracker 1.0, ProTracker 1.1, ProTracker 1.2)
-* FXPlayer (SoundFX 1.0, SoundFX 1.8, SoundFX 1.9, SoundFX 2.0)
-* FCPlayer (FutureComposer 1.0, FutureComposer 1.2, FutureComposer 1.3, FutureComposer 1.4)
-* S1Player (SidMon)
-* S2Player (SidMon II)
-* BPPlayer (BP SoundMon 1.0, BP SoundMon 2.0, BP SoundMon 3.0)
-* D1Player (DeltaMusic 1.0)
-* D2Player (DeltaMusic 2.0, Delta Music 2.2)
-* DMPlayer (Digital Mugician 4 &amp; 7 Voices)
-* DWPlayer (David Whittaker)
-* F2Player (FastTracker II XM + DigiBooster Pro 2.18 detection)
-* FEPlayer (FredEd player)
-* JHPlayer (Jochen Hippel player)
-* RHPlayer (Rob Hubbard player)
+* FastTracker II XM + DigiBooster Pro 2.18 detection
+* The Ultimate Soundtracker
+* DOC Soundtracker 9, DOC Soundtracker 2.0
+* Master Soundtracker
+* Soundtracker 2.3, Soundtracker 2.5
+* NoiseTracker 1.0, NoiseTracker 1.1, NoiseTracker 2.0
+* His Master’s NoiseTracker
+* ProTracker 1.0, ProTracker 1.1, ProTracker 1.2
+* SoundFX 1.0, SoundFX 1.8, SoundFX 1.9, SoundFX 2.0
+* FutureComposer 1.0, FutureComposer 1.2, FutureComposer 1.3, FutureComposer 1.4
+* SidMon
+* SidMon II
+* BP SoundMon 1.0, BP SoundMon 2.0, BP SoundMon 3.0
+* DeltaMusic 1.0
+* DeltaMusic 2.0, Delta Music 2.2
+* Digital Mugician 4 & 7 Voices
+* David Whittaker
+* FredEd
+* Jochen Hippel
+* Rob Hubbard
 
 
 Author
 ------
 
-1st April 2012
-Christian Corti
+1st April 2012, Christian Corti
 Neoart Costa Rica
-
 E-Mail: flod@neoartcr.com
 
 Live Demo
