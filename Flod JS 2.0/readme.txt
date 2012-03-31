@@ -15,7 +15,7 @@ Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105
 Flod is free for non commercial user, to use it in any commercial production I'll ask you to
 mention the proper credits and to make a donation to: chreil@hotmail.com via PayPal, thank you.
 
-Special thanks to Richard Davey, Mathew Nolan and Anreas Argirakis :)
+Special thanks to Richard Davey, Mathew Nolan and Andreas Argirakis :)
 
 What's new:
 4.0/2.0:
@@ -32,6 +32,7 @@ What's new:
   - SoundFX, fixed effect 7/8 [step down/up] (fixes Forever Tonight)
   - SidMON 2, fixed effect C/F [volume and speed] (fixes Cool Module)
   - SidMON 2 was processing effects at tick 0, it shouldn't :)
+  - SidMON 2, fixed adsr sustain volume
   - SoundMon, fixed buffer restore, most modules didn't play at all
   - ProTracker/NoiseTracker fixed vibrato depth value not set at the beginning
   - Fixed and updated Flip/Unzip

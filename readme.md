@@ -26,10 +26,12 @@ This is a JavaScript port of my AS3 Flod library, it currently works only in Chr
 It took a lot of effort to reach this stage so if you want to use it in any commercial production I'll ask
 you to mention the proper credits and to make a donation to: chreil@hotmail.com via PayPal, thank you.
 
+Special thanks to Richard Davey, Mathew Nolan and Andreas Argirakis :)
+
 This version will replay the following music formats using the Web Audio API:
 
-* FastTracker II XM + DigiBooster Pro 2.18 detection
-* The Ultimate Soundtracker
+* FastTracker II XM PC + DigiBooster Pro 2.18 detection
+* The Ultimate Soundtracker (Karsten Obarski)
 * DOC Soundtracker 9, DOC Soundtracker 2.0
 * Master Soundtracker
 * Soundtracker 2.3, Soundtracker 2.5
@@ -38,17 +40,17 @@ This version will replay the following music formats using the Web Audio API:
 * ProTracker 1.0, ProTracker 1.1, ProTracker 1.2
 * SoundFX 1.0, SoundFX 1.8, SoundFX 1.9, SoundFX 2.0
 * FutureComposer 1.0, FutureComposer 1.2, FutureComposer 1.3, FutureComposer 1.4
-* SidMon
-* SidMon II
-* BP SoundMon 1.0, BP SoundMon 2.0, BP SoundMon 3.0
+* SidMON
+* SidMON II
+* Brian Postma's SoundMon 1.0, 2.0 and 3.0
 * DeltaMusic 1.0
 * DeltaMusic 2.0, Delta Music 2.2
-* Digital Mugician 4 & 7 Voices
+* Digital Mugician
+* Digital Mugician 7 Voices
 * David Whittaker
 * FredEd
-* Jochen Hippel
+* Jochen Hippel (regular and COSO formats, 4 voices only)
 * Rob Hubbard
-
 
 Author
 ------
@@ -69,11 +71,13 @@ You can include just the player(s) you need in your page just remember that all 
 the Core.js and the Amiga.js files too and the PC player (FT2) needs the Core.js and the Soundblaster.js files.
 
 Example, including the ProTracker player:
+
 	Core.js
 	Amiga.js
 	PTPlayer.js
 
 including the FastTracker II player:
+
 	Core.js
 	Soundblaster.js
 	F2Player.js
