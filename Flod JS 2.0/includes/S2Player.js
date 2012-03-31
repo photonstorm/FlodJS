@@ -4,7 +4,7 @@
   Christian Corti
   Neoart Costa Rica
 
-  Last Update: Flod JS 2.0 - 2012/03/10
+  Last Update: Flod JS 2.0 - 2012/03/31
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
@@ -453,7 +453,7 @@
                   continue;
                 }
 
-                value = sample.negStart = sample.negPos;
+                value = sample.negStart + sample.negPos;
                 this.mixer.memory[value] = ~this.mixer.memory[value];
                 sample.negPos += sample.negOffset;
                 value = sample.negLen - 1;
@@ -462,14 +462,14 @@
                   if (sample.negDir == 2) {
                     sample.negPos = value;
                   } else {
-                    sample.negOffset = ~sample.negOffset + 1;
+                    sample.negOffset = -sample.negOffset;
                     sample.negPos += sample.negOffset;
                   }
                 } else if (value < sample.negPos) {
                   if (sample.negDir == 1) {
                     sample.negPos = 0;
                   } else {
-                    sample.negOffset = ~sample.negOffset + 1;
+                    sample.negOffset = -sample.negOffset;
                     sample.negPos += sample.negOffset;
                   }
                 }
@@ -515,7 +515,7 @@
                   break;
                 case 2:   //sustain
                   if (voice.sustainCtr == instr.sustain) voice.adsrPos--;
-                    else voice.sustainCtr--;
+                    else voice.sustainCtr++;
                   break;
                 case 1:   //release
                   voice.volume -= instr.releaseSpeed;
@@ -627,7 +627,7 @@
                 if (row.effect && row.effect < 0x70) {
                   voice.noteSlideTo = PERIODS[row.effect + voice.step.transpose];
                   value = row.param;
-                  if ((voice.noteSlideTo - voice.period) < 0) value = ~value + 1;
+                  if ((voice.noteSlideTo - voice.period) < 0) value = -value;
                   voice.noteSlideSpeed = value;
                 }
               }
