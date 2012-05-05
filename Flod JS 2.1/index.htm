@@ -1,0 +1,119 @@
+<!--
+  Flod JS 2.1
+  2012/04/30
+  Christian Corti
+  Neoart Costa Rica
+
+  Last Update: Flod JS 2.1 - 2012/04/16
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+  This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License.
+  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to
+  Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Flod JS 2.1 | Christian Corti</title>
+  <style type="text/css">
+    body { background:#000000; color:#f0f0f0; font:normal 12px "Segoe UI",sans-serif }
+    *    { font-size:12px }
+  </style>
+  <script type="text/javascript" src="Flod.php"></script>
+</head>
+<body>
+  <h1>Flod JS 2.1 | &copy; 2012 Christian Corti</h1>
+  <br/>
+  <div>
+    <h2>FileLoader</h2>
+    <input type="file" id="browse"/><br/>
+    <h2 id="tracker">&nbsp;</h2>
+  </div>
+  <br/><br/>
+  <button type="button" id="play" disabled>Play</button>
+  <button type="button" id="pause" disabled>Pause</button>
+  <button type="button" id="stop" disabled>Stop</button>
+  <button type="button" id="next" disabled>Next Song</button>
+  <br/><br/>
+  <input type="range" id="volume" min="0.0" max="1.0" step="0.1" value="1.0"/>
+
+<script type="text/javascript">
+  window.addEventListener("DOMContentLoaded", function() {
+    var gid    = function(id) { return document.getElementById(id); },
+        play   = gid("play"),
+        pause  = gid("pause"),
+        stop   = gid("stop"),
+        next   = gid("next"),
+        volume = gid("volume"),
+        loader = window.neoart.FileLoader;
+        player = null;
+
+    gid("browse").addEventListener("change", function(e) {
+      var file = e.target.files[0], reader;
+
+      if (player) {
+        player.stop();
+        stop.disabled = true;
+      }
+
+      if (file) {
+        reader = new FileReader();
+
+        reader.onload = function(e) {
+          player = loader.load(e.target.result);
+
+          if (player) {
+            play.disabled = (player.version)  ? false : true;
+            next.disabled = (player.lastSong) ? false : true;
+          } else {
+            play.disabled = true;
+          }
+          gid("tracker").innerHTML = loader.tracker;
+        }
+        reader.readAsArrayBuffer(file);
+      }
+    });
+
+    play.addEventListener("click", function(e) {
+      player.play();
+      play.disabled  = true;
+      pause.disabled = false;
+      stop.disabled  = false;
+      next.disabled  = true;
+    });
+
+    pause.addEventListener("click", function(e) {
+      player.pause();
+      play.disabled  = false;
+      pause.disabled = true;
+    });
+
+    stop.addEventListener("click", function(e) {
+      player.stop();
+      completeHandler();
+    });
+
+    next.addEventListener("click", function(e) {
+      if (++player.playSong > player.lastSong) player.playSong = 0;
+    });
+
+    volume.addEventListener("change", function(e) {
+      player.volume = e.target.valueAsNumber;
+    });
+
+    function completeHandler() {
+      play.disabled  = false;
+      pause.disabled = true;
+      stop.disabled  = true;
+      next.disabled  = false;
+    }
+
+    document.addEventListener("flodStop", completeHandler);
+  });
+</script>
+</body>
+</html>
