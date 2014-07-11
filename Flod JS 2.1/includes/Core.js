@@ -256,7 +256,7 @@
             this.paused = 0;
           } else {
             this.initialize();
-            this.node = this.context.createJavaScriptNode(this.mixer.bufferSize);
+            this.node = this.context.createScriptProcessor(this.mixer.bufferSize);
             this.node.onaudioprocess = this.callback;
           }
 
@@ -305,7 +305,7 @@
     });
 
     if (!window.neoart.audioContext)
-      window.neoart.audioContext = new webkitAudioContext();
+      window.neoart.audioContext = new AudioContext();
 
     o.context = window.neoart.audioContext;
     o.sampleRate = o.context.sampleRate;
